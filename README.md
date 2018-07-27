@@ -8,6 +8,11 @@ Hadoop cluster on Raspberry Pi
 
 # Docker images
 
-## Master 
+## namenode (Master)
 
-## Nodes
+## master and slave nodes
+
+# Install
+## Verify
+
+# Run example
