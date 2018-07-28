@@ -36,4 +36,9 @@ RUN mkdir -p ~/hdfs/namenode && \
     mkdir -p ~/hdfs/datanode && \
     mkdir $HADOOP_HOME/logs
 
+# Docker config
 COPY config/* /tmp/
+
+RUN /usr/local/hadoop/bin/hdfs namenode -format
+
+CMD [ "sh", "-c", "service ssh start; bash"]
