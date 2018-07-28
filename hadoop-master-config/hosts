@@ -1,0 +1,11 @@
+#/etc/hosts
+127.0.0.1       localhost
+::1             localhost ip6-localhost ip6-loopback
+ff02::1         ip6-allnodes
+ff02::2         ip6-allrouters
+
+192.168.1.50    hadoop-master
+192.168.1.51    hadoop-slave-1
+192.168.1.52    hadoop-slave-2
+192.168.1.53    hadoop-slave-3
+192.168.1.54    hadoop-slave-4
