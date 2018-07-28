@@ -26,6 +26,11 @@ RUN wget https://github.com/jbw/build-hadoop/releases/download/3.0.3/hadoop-3.0.
 ENV JAVA_HOME=/usr/lib/jvm/java-8-oracle 
 ENV HADOOP_HOME=/usr/local/hadoop 
 ENV PATH=$PATH:/usr/local/hadoop/bin:/usr/local/hadoop/sbin 
+ENV HDFS_NAMENODE_USER="root"
+ENV HDFS_DATANODE_USER="root"
+ENV HDFS_SECONDARYNAMENODE_USER="root"
+ENV YARN_RESOURCEMANAGER_USER="root"
+ENV YARN_NODEMANAGER_USER="root"
 
 # ssh without key
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && \
@@ -37,10 +42,17 @@ RUN mkdir -p ~/hdfs/namenode && \
 
 # Docker config
 COPY hadoop-config/* /tmp/
+# if master
+COPY hadoop-master-config/* /tmp/
+
+# if slave
+# COPY hadoop-slave-config/* /tmp/
+
 COPY hadoop-master-config/hosts /etc/
 
 # Hadoop config 
-RUN mv /tmp/hdfs-site.xml $HADOOP_HOME/etc/hadoop/hdfs-site.xml && \ 
+RUN mv /tmp/hadoop-env.sh /usr/local/hadoop/etc/hadoop/hadoop-env.sh && \
+    mv /tmp/hdfs-site.xml $HADOOP_HOME/etc/hadoop/hdfs-site.xml && \ 
     mv /tmp/core-site.xml $HADOOP_HOME/etc/hadoop/core-site.xml && \
     mv /tmp/mapred-site.xml $HADOOP_HOME/etc/hadoop/mapred-site.xml && \
     mv /tmp/yarn-site.xml $HADOOP_HOME/etc/hadoop/yarn-site.xml && \
