@@ -7,7 +7,7 @@ Hadoop cluster on Raspberry Pi
 
 
 # Docker images
-
+`sudo docker network create --driver=bridge hadoop`
 ## namenode (Master)
 
 ## master and slave nodes
