@@ -1,8 +1,4 @@
-# Elephant-Pi - Hadoop cluster on Raspberry Pi
-
-# Hardware
-
-# Raspberry Pi Installation
+# hadoop-docker-cluster
 
 # Hadoop Installation
 
