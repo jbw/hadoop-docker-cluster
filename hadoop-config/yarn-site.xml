@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <configuration>
     <property>
+        <name>yarn.resourcemanager.hostname</name>
+        <value>hadoop-master</value>
+    </property>
+    <property>
         <name>yarn.nodemanager.aux-services</name>
         <value>mapreduce_shuffle</value>
     </property>
@@ -8,10 +12,7 @@
         <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
         <value>org.apache.hadoop.mapred.ShuffleHandler</value>
     </property>
-    <property>
-        <name>yarn.resourcemanager.hostname</name>
-        <value>hadoop-master</value>
-    </property>
+
 
     <!-- Raspberry hardware specifics -->
     <property>
@@ -48,7 +49,7 @@
         <value>4</value>
         <description>Ratio between virtual memory to physical memory when setting memory limits for containers</description>
     </property>
-    
+
     <property>
         <name>yarn.resourcemanager.resource-tracker.address</name>
         <value>hadoop-master:8025</value>
@@ -60,6 +61,11 @@
     <property>
         <name>yarn.resourcemanager.address</name>
         <value>hadoop-master:8040</value>
+    </property>
+
+    <property>
+        <name>yarn.app.mapreduce.am.resource.mb</name>
+        <value>1000</value>
     </property>
 
 </configuration>
