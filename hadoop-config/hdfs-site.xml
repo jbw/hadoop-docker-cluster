@@ -12,5 +12,5 @@
         <name>dfs.datanode.data.dir</name>
         <value>file:///root/hdfs/datanode</value>
     </property>
-    
+
 </configuration>
