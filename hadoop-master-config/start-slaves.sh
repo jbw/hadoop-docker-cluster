@@ -6,6 +6,6 @@ i=1
 while (($i <= $slaves_count))
 do
     echo "booting up hadoop-slave-$i"
-    ssh hadoop-slave-$i "./start-hadoop.sh && exit"
+    ssh -t hadoop-slave-$i "./start-hadoop.sh && exit"
     i=$(( $i + 1 ))
 done
