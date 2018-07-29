@@ -7,7 +7,7 @@ RUN apt-get update
 
 RUN apt-get update && apt-get install -y openssh-server wget
 
-RUN apt-get install -y software-properties-common debconf-utils
+RUN apt-get install -y software-properties-common debconf-utils net-tools
 
 RUN add-apt-repository -y ppa:webupd8team/java
 
@@ -48,20 +48,23 @@ COPY hadoop-master-config/* /tmp/
 # if slave
 # COPY hadoop-slave-config/* /tmp/
 
-COPY hadoop-master-config/hosts /etc/
-
 # Hadoop config 
-RUN mv /tmp/hadoop-env.sh /usr/local/hadoop/etc/hadoop/hadoop-env.sh && \
+RUN mv /tmp/ssh_config ~/.ssh/config && \
+    mv /tmp/hadoop-env.sh /usr/local/hadoop/etc/hadoop/hadoop-env.sh && \
     mv /tmp/hdfs-site.xml $HADOOP_HOME/etc/hadoop/hdfs-site.xml && \ 
     mv /tmp/core-site.xml $HADOOP_HOME/etc/hadoop/core-site.xml && \
     mv /tmp/mapred-site.xml $HADOOP_HOME/etc/hadoop/mapred-site.xml && \
     mv /tmp/yarn-site.xml $HADOOP_HOME/etc/hadoop/yarn-site.xml && \
     mv /tmp/slaves $HADOOP_HOME/etc/hadoop/slaves && \
-    mv /tmp/start-hadoop.sh ~/start-hadoop.sh
+    mv /tmp/start-hadoop.sh ~/start-hadoop.sh && \
+    mv /tmp/start-slaves.sh ~/start-slaves.sh && \
+    mv /tmp/.bashrc ~/.bashrc
+
 
 RUN chmod +x ~/start-hadoop.sh && \
     chmod +x $HADOOP_HOME/sbin/start-dfs.sh && \
-    chmod +x $HADOOP_HOME/sbin/start-yarn.sh 
+    chmod +x $HADOOP_HOME/sbin/start-yarn.sh && \
+    chmod +x ~/start-slaves.sh 
 
 RUN /usr/local/hadoop/bin/hdfs namenode -format
 
