@@ -1,19 +1,19 @@
 # hadoop-docker-cluster
 
-# Hadoop Installation
+## Hadoop Installation
 
-## Docker Network
+### Docker Network
 `sudo docker network create --driver=bridge hadoop`
 
-## Build
+### Build
 
 `./build.sh`
 
-## Start
+### Start
 
 `./start.sh`
 
-## Hadoop
+### Hadoop
 
 Start namenode:
 
@@ -23,16 +23,16 @@ Start slave nodes:
 
 `./start-slaves.sh`
 
-## Verify
+### Verify
 
 `hdfs dfsadmin -report`
 
 
-# Examples
+## Examples
 
 Replace `3.0.3` in any filenames with your Hadoop version.
 
-## 1) wordcount
+### 1) wordcount
 
 Copy a file to HDFS:
 
@@ -47,10 +47,10 @@ Dump the result to terminal:
 
 `hdfs dfs -cat "/test/part-r-00000"`
 
-## 2) pi
+### 2) pi
 `yarn jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.0.3.jar pi 10 100`
 
-# Dashboard
+## Dashboard
 
 go to `http://localhost:8088/cluster`
 
