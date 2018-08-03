@@ -7,7 +7,7 @@ RUN apt-get update
 
 RUN apt-get update && apt-get install -y openssh-server wget
 
-RUN apt-get install -y software-properties-common debconf-utils net-tools
+RUN apt-get install -y software-properties-common debconf-utils net-tools vim 
 
 RUN add-apt-repository -y ppa:webupd8team/java
 
