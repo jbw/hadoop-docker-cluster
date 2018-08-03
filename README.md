@@ -4,6 +4,7 @@
 
 ### Add user to docker group
 `sudo groupadd docker`
+
 `sudo usermod -aG docker $USER`
 
 Logout of your session and back in again and you will be able to use `docker` commands without `sudo`. 
