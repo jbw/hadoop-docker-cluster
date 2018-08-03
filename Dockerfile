@@ -17,7 +17,7 @@ RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true
 
 RUN apt-get install -y oracle-java8-installer
 
-RUN wget https://github.com/jbw/build-hadoop/releases/download/3.0.3/hadoop-3.0.3.tar.gz && \
+RUN wget https://github.com/jbw/build-hadoop/releases/download/3.0.3-ubuntu/hadoop-3.0.3.tar.gz && \
     tar -xzvf hadoop-3.0.3.tar.gz && \
     mv hadoop-3.0.3 /usr/local/hadoop && \ 
     rm hadoop-3.0.3.tar.gz
